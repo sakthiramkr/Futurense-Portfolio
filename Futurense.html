@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Sakthi Ramkumar — Marketing Manager</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,600;1,9..144,300;1,9..144,400&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#F7F3EE;
+  --surface:#FFFFFF;
+  --card:#F0EAE1;
+  --border:#DDD4C6;
+  --gold:#8B5E1A;
+  --gold-dim:#6B4812;
+  --gold-light:#C4893A;
+  --ink:#1C1510;
+  --mid:#5A4E44;
+  --muted:#9A8F84;
+  --tag-bg:#EDE5D8;
+  --tag-border:#D4C8B8;
+  --serif:'Fraunces',Georgia,serif;
+  --sans:'DM Sans',system-ui,sans-serif;
+  --mono:'DM Mono',monospace;
+}
+html{scroll-behavior:smooth;font-size:16px}
+body{background:var(--bg);color:var(--ink);font-family:var(--sans);font-weight:400;line-height:1.6;overflow-x:hidden}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:20px 48px;display:flex;align-items:center;justify-content:space-between;background:rgba(247,243,238,0.94);backdrop-filter:blur(12px);border-bottom:1px solid transparent;transition:border-color .3s}
+nav.scrolled{border-color:var(--border)}
+.nav-name{font-family:var(--serif);font-size:15px;font-weight:400;color:var(--gold);letter-spacing:.02em}
+.nav-links{display:flex;gap:32px;list-style:none}
+.nav-links a{font-size:13px;font-weight:500;color:var(--muted);text-decoration:none;letter-spacing:.06em;text-transform:uppercase;transition:color .2s}
+.nav-links a:hover{color:var(--ink)}
+
+/* HERO */
+.hero{min-height:100vh;display:flex;flex-direction:column;justify-content:flex-end;padding:0 48px 80px;position:relative;overflow:hidden}
+.hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse 70% 50% at 75% 25%,rgba(180,120,40,.08) 0%,transparent 65%),radial-gradient(ellipse 40% 35% at 15% 85%,rgba(180,120,40,.05) 0%,transparent 55%);pointer-events:none}
+.hero-rule{position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--gold) 0%,var(--gold-light) 40%,transparent 100%)}
+.hero-label{font-family:var(--mono);font-size:12px;color:var(--gold);letter-spacing:.14em;text-transform:uppercase;margin-bottom:24px;opacity:0;animation:fadeUp .6s .2s forwards}
+.hero-name{font-family:var(--serif);font-size:clamp(56px,8vw,104px);font-weight:300;line-height:.95;letter-spacing:-.03em;color:var(--ink);margin-bottom:32px;opacity:0;animation:fadeUp .7s .35s forwards}
+.hero-name em{font-style:italic;color:var(--gold)}
+.hero-tagline{max-width:560px;font-size:18px;font-weight:400;color:var(--mid);line-height:1.7;margin-bottom:48px;opacity:0;animation:fadeUp .7s .5s forwards}
+.hero-cta{display:flex;gap:16px;opacity:0;animation:fadeUp .6s .65s forwards}
+.btn{display:inline-block;padding:13px 28px;font-size:13px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;text-decoration:none;border-radius:2px;transition:all .2s;cursor:pointer;border:none}
+.btn-primary{background:var(--ink);color:#F7F3EE}
+.btn-primary:hover{background:var(--gold)}
+.hero-scroll{position:absolute;bottom:32px;right:48px;font-family:var(--mono);font-size:11px;color:var(--muted);letter-spacing:.1em;text-transform:uppercase;display:flex;align-items:center;gap:10px;opacity:0;animation:fadeUp .5s .9s forwards}
+.hero-scroll::before{content:'';display:block;width:40px;height:1px;background:var(--border)}
+
+/* METRICS */
+.metrics{padding:48px;border-top:1px solid var(--border);border-bottom:1px solid var(--border);display:grid;grid-template-columns:repeat(5,1fr);gap:0;background:var(--surface)}
+.metric{padding:28px 24px;border-right:1px solid var(--border);text-align:center}
+.metric:last-child{border-right:none}
+.metric-num{font-family:var(--serif);font-size:32px;font-weight:300;color:var(--gold);display:block;line-height:1;margin-bottom:8px;font-style:italic}
+.metric-label{font-family:var(--mono);font-size:11px;color:var(--muted);letter-spacing:.07em;text-transform:uppercase;line-height:1.45}
+
+/* SECTION COMMON */
+section{padding:96px 48px}
+.section-num{font-family:var(--mono);font-size:11px;color:var(--gold);letter-spacing:.14em;text-transform:uppercase;margin-bottom:16px;display:block}
+.section-title{font-family:var(--serif);font-size:clamp(32px,4vw,52px);font-weight:300;line-height:1.1;letter-spacing:-.02em;margin-bottom:48px;color:var(--ink)}
+.section-title em{font-style:italic;color:var(--gold)}
+.section-divider{width:100%;height:1px;background:var(--border);margin:0 0 64px}
+
+/* ABOUT */
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start}
+.about-body p{font-size:16px;color:var(--mid);line-height:1.8;margin-bottom:20px}
+.about-body p strong{color:var(--ink);font-weight:600}
+.about-aside{display:flex;flex-direction:column;gap:32px}
+.aside-block{border-left:2px solid var(--gold-light);padding-left:20px}
+.aside-block h4{font-family:var(--mono);font-size:11px;color:var(--gold);letter-spacing:.1em;text-transform:uppercase;margin-bottom:10px}
+.aside-block p{font-size:14px;color:var(--mid);line-height:1.65}
+.aside-block a{color:var(--gold);text-decoration:none}
+.aside-block a:hover{text-decoration:underline}
+
+/* EXPERIENCE */
+.exp-item{display:grid;grid-template-columns:200px 1fr;gap:48px;padding:48px 0;border-bottom:1px solid var(--border)}
+.exp-item:first-child{padding-top:0;border-top:1px solid var(--border)}
+.exp-meta{padding-top:4px}
+.exp-period{font-family:var(--mono);font-size:12px;color:var(--muted);letter-spacing:.05em;margin-bottom:8px}
+.exp-company{font-size:14px;color:var(--gold);font-weight:600;margin-bottom:4px}
+.exp-loc{font-size:13px;color:var(--muted)}
+.exp-body h3{font-family:var(--serif);font-size:24px;font-weight:400;color:var(--ink);margin-bottom:8px;letter-spacing:-.01em}
+.exp-body .exp-sub{font-size:14px;color:var(--muted);font-style:italic;margin-bottom:24px;line-height:1.6}
+.exp-clusters{display:flex;flex-direction:column;gap:24px}
+.exp-cluster h4{font-family:var(--mono);font-size:11px;color:var(--gold-dim);letter-spacing:.1em;text-transform:uppercase;margin-bottom:12px}
+.exp-cluster ul{list-style:none;display:flex;flex-direction:column;gap:10px}
+.exp-cluster li{font-size:15px;color:var(--mid);line-height:1.65;padding-left:16px;position:relative}
+.exp-cluster li::before{content:'—';position:absolute;left:0;color:var(--muted);font-size:13px}
+.exp-cluster li strong{color:var(--ink);font-weight:600}
+.tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:24px}
+.tag{display:inline-block;padding:5px 12px;font-family:var(--mono);font-size:11px;color:var(--gold-dim);background:var(--tag-bg);border:1px solid var(--tag-border);border-radius:2px;letter-spacing:.05em}
+
+/* CONTENT WORK */
+.work-grid{display:grid;grid-template-columns:1fr 1fr;gap:2px}
+.work-card{background:var(--surface);padding:40px;cursor:pointer;transition:background .2s,box-shadow .2s;position:relative;overflow:hidden;border:1px solid var(--border)}
+.work-card::after{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;background:var(--gold);transform:scaleX(0);transform-origin:left;transition:transform .3s}
+.work-card:hover{background:var(--card);box-shadow:0 4px 20px rgba(28,21,16,.06)}
+.work-card:hover::after{transform:scaleX(1)}
+.work-card-num{font-family:var(--mono);font-size:11px;color:var(--muted);letter-spacing:.1em;text-transform:uppercase;margin-bottom:20px;display:block}
+.work-card-cat{font-family:var(--mono);font-size:11px;color:var(--gold);letter-spacing:.08em;text-transform:uppercase;margin-bottom:12px;display:block}
+.work-card h3{font-family:var(--serif);font-size:22px;font-weight:400;color:var(--ink);line-height:1.25;margin-bottom:16px;letter-spacing:-.01em}
+.work-card p{font-size:14px;color:var(--mid);line-height:1.7}
+.work-card-arrow{position:absolute;bottom:24px;right:24px;font-size:20px;color:var(--gold);opacity:0;transition:opacity .2s,transform .2s}
+.work-card:hover .work-card-arrow{opacity:1;transform:translate(4px,-4px)}
+
+/* YOUTUBE FEATURE */
+.yt-feature{background:var(--surface);border:1px solid var(--border);overflow:hidden;margin-bottom:2px;cursor:pointer;transition:box-shadow .2s}
+.yt-feature:hover{box-shadow:0 4px 24px rgba(28,21,16,.08)}
+.yt-inner{display:grid;grid-template-columns:1fr 1fr;gap:0}
+.yt-embed-side{position:relative;background:#111;aspect-ratio:16/9;min-height:260px;overflow:hidden;display:block;text-decoration:none}
+.yt-thumb{width:100%;height:100%;object-fit:cover;display:block;transition:transform .4s,opacity .4s;opacity:.9}
+.yt-embed-side:hover .yt-thumb{transform:scale(1.04);opacity:1}
+.yt-play-btn{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;pointer-events:none}
+.yt-play-circle{width:72px;height:72px;border-radius:50%;background:rgba(139,94,26,.9);display:flex;align-items:center;justify-content:center;transition:transform .2s,background .2s;box-shadow:0 4px 24px rgba(0,0,0,.4)}
+.yt-embed-side:hover .yt-play-circle{transform:scale(1.1);background:var(--gold)}
+.yt-play-triangle{width:0;height:0;border-top:14px solid transparent;border-bottom:14px solid transparent;border-left:22px solid #fff;margin-left:4px}
+.yt-badge{position:absolute;bottom:14px;left:14px;background:rgba(247,243,238,.92);border:1px solid var(--border);backdrop-filter:blur(8px);padding:6px 12px;font-family:var(--mono);font-size:10px;color:var(--gold);letter-spacing:.08em;text-transform:uppercase}
+.yt-ext-arrow{position:absolute;top:14px;right:14px;font-size:18px;color:#fff;opacity:0;transition:opacity .2s}
+.yt-embed-side:hover .yt-ext-arrow{opacity:1}
+.yt-content-side{padding:48px}
+.yt-content-side .work-card-cat{display:block;margin-bottom:12px}
+.yt-content-side h3{font-family:var(--serif);font-size:26px;font-weight:400;color:var(--ink);line-height:1.2;margin-bottom:16px;letter-spacing:-.01em}
+.yt-content-side p{font-size:15px;color:var(--mid);line-height:1.7;margin-bottom:24px}
+.yt-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:16px}
+.yt-stat-num{font-family:var(--serif);font-size:22px;font-weight:400;color:var(--gold);font-style:italic;display:block;line-height:1}
+.yt-stat-label{font-family:var(--mono);font-size:10px;color:var(--muted);letter-spacing:.08em;text-transform:uppercase;margin-top:6px;display:block}
+
+/* KARAI FEATURE */
+.karai-feature{background:var(--surface);border:1px solid var(--border);padding:48px;margin-top:2px}
+.karai-inner{display:grid;grid-template-columns:400px 1fr;gap:56px;align-items:start}
+.karai-embed-wrap{width:100%;max-width:400px}
+.karai-embed-wrap .instagram-media{margin:0!important;min-width:unset!important;max-width:100%!important;width:100%!important;border-radius:6px!important;box-shadow:0 8px 32px rgba(0,0,0,.4)!important}
+.karai-content{padding-top:4px}
+.karai-content .work-card-cat{display:block;margin-bottom:12px}
+.karai-content h3{font-family:var(--serif);font-size:26px;font-weight:400;color:var(--ink);line-height:1.2;margin-bottom:16px;letter-spacing:-.01em}
+.karai-content p{font-size:15px;color:var(--mid);line-height:1.75;margin-bottom:20px}
+.karai-pills{display:flex;flex-wrap:wrap;gap:8px}
+
+/* SKILLS */
+.skills-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:32px}
+.skill-block h4{font-family:var(--mono);font-size:11px;color:var(--gold);letter-spacing:.1em;text-transform:uppercase;margin-bottom:16px;padding-bottom:12px;border-bottom:1px solid var(--border)}
+.skill-block ul{list-style:none;display:flex;flex-direction:column;gap:10px}
+.skill-block li{font-size:14px;color:var(--mid);line-height:1.55;padding-left:14px;position:relative}
+.skill-block li::before{content:'·';position:absolute;left:0;color:var(--gold-dim);font-size:16px;line-height:1.3}
+
+/* MODAL */
+.modal-overlay{position:fixed;inset:0;background:rgba(28,21,16,.75);z-index:200;display:flex;align-items:flex-start;justify-content:center;opacity:0;pointer-events:none;transition:opacity .3s;padding:40px 24px;overflow-y:auto}
+.modal-overlay.open{opacity:1;pointer-events:all}
+.modal{background:var(--surface);border:1px solid var(--border);box-shadow:0 24px 64px rgba(28,21,16,.18);max-width:860px;width:100%;padding:56px;position:relative;transform:translateY(24px);transition:transform .3s}
+.modal-overlay.open .modal{transform:translateY(0)}
+.canva-wrap{display:grid;grid-template-columns:1fr 1fr;gap:28px;margin:28px 0;align-items:start}
+.canva-embed-box{position:relative;width:100%;height:0;padding-top:125%;overflow:hidden;border-radius:3px;border:1px solid var(--border)}
+.canva-embed-box iframe{position:absolute;width:100%;height:100%;top:0;left:0;border:none;padding:0;margin:0}
+.canva-caption{font-family:var(--mono);font-size:10px;color:var(--muted);letter-spacing:.07em;text-transform:uppercase;margin-top:8px;text-align:center}
+.modal-close{position:absolute;top:24px;right:24px;background:none;border:1px solid var(--border);color:var(--muted);font-family:var(--mono);font-size:11px;letter-spacing:.08em;padding:8px 14px;cursor:pointer;text-transform:uppercase;transition:all .2s}
+.modal-close:hover{border-color:var(--gold);color:var(--ink)}
+.modal-cat{font-family:var(--mono);font-size:11px;color:var(--gold);letter-spacing:.1em;text-transform:uppercase;margin-bottom:12px;display:block}
+.modal h2{font-family:var(--serif);font-size:clamp(22px,3vw,34px);font-weight:300;color:var(--ink);line-height:1.15;letter-spacing:-.02em;margin-bottom:32px}
+.modal-body p{font-size:15px;color:var(--mid);line-height:1.85;margin-bottom:20px}
+.modal-body p strong{color:var(--ink);font-weight:600}
+.modal-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border:1px solid var(--border);margin:32px 0;background:var(--card)}
+.modal-stat{padding:20px;text-align:center;border-right:1px solid var(--border)}
+.modal-stat:last-child{border-right:none}
+.modal-stat-num{font-family:var(--serif);font-size:24px;font-weight:300;color:var(--gold);font-style:italic;display:block;margin-bottom:6px;line-height:1}
+.modal-stat-label{font-family:var(--mono);font-size:10px;color:var(--muted);letter-spacing:.08em;text-transform:uppercase}
+.modal-section{margin-top:32px}
+.modal-section h4{font-family:var(--mono);font-size:11px;color:var(--gold-dim);letter-spacing:.1em;text-transform:uppercase;margin-bottom:16px;padding-bottom:10px;border-bottom:1px solid var(--border)}
+.step-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:16px}
+.step-block{background:var(--card);border:1px solid var(--border);padding:20px}
+.step-block .step-num{font-family:var(--mono);font-size:10px;color:var(--gold);letter-spacing:.1em;text-transform:uppercase;margin-bottom:8px;display:block}
+.step-block p{font-size:13px;color:var(--mid);line-height:1.6}
+.step-block strong{color:var(--ink);font-weight:600;display:block;font-size:14px;margin-bottom:6px}
+
+/* FOOTER */
+footer{padding:48px;border-top:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;background:var(--surface)}
+.footer-name{font-family:var(--serif);font-size:14px;color:var(--muted);font-style:italic}
+.footer-links{display:flex;gap:24px}
+.footer-links a{font-family:var(--mono);font-size:11px;color:var(--muted);text-decoration:none;letter-spacing:.06em;text-transform:uppercase;transition:color .2s}
+.footer-links a:hover{color:var(--gold)}
+
+@keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .6s,transform .6s}
+.reveal.visible{opacity:1;transform:none}
+
+@media(max-width:900px){
+  nav{padding:16px 24px}
+  .hero{padding:0 24px 64px}
+  .metrics{grid-template-columns:repeat(3,1fr);padding:32px 24px}
+  .metric:nth-child(3){border-right:none}
+  section{padding:64px 24px}
+  .about-grid,.exp-item,.work-grid,.karai-inner,.yt-inner{grid-template-columns:1fr}
+  .skills-grid{grid-template-columns:repeat(2,1fr)}
+  .modal{padding:32px 24px}
+  .modal-stats,.step-grid{grid-template-columns:1fr 1fr}
+  footer{flex-direction:column;gap:24px;padding:32px 24px;text-align:center}
+}
+</style>
+</head>
+<body>
+
+<nav id="nav">
+  <span class="nav-name">Sakthi Ramkumar</span>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#work">Work</a></li>
+    <li><a href="#skills">Skills</a></li>
+  </ul>
+</nav>
+
+<div class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-rule"></div>
+  <span class="hero-label">Brand Building · Creative Direction · Video & Social</span>
+  <h1 class="hero-name">SAKTHI<br><em>RAMKUMAR.</em></h1>
+  <p class="hero-tagline">Five years building brand voices, content engines, and campaign strategies from scratch — writing the copy, hooking the video, and briefing the team. High-level strategy in the morning. Hands in the work by afternoon.</p>
+  <div class="hero-cta">
+    <a href="#work" class="btn btn-primary">View Content Work</a>
+  </div>
+  <div class="hero-scroll">Scroll to explore</div>
+</div>
+
+<div class="metrics">
+  <div class="metric"><span class="metric-num">43%</span><span class="metric-label">Inbound Traffic<br>via Content</span></div>
+  <div class="metric"><span class="metric-num">40%</span><span class="metric-label">Direct Traffic Lift<br>Chennai OOH</span></div>
+  <div class="metric"><span class="metric-num">+12%</span><span class="metric-label">Signup Lift<br>Copy A/B Test</span></div>
+  <div class="metric"><span class="metric-num">18%</span><span class="metric-label">Revenue Lift<br>Brand & Pricing Revamp</span></div>
+  <div class="metric"><span class="metric-num">1,000+</span><span class="metric-label">Signups<br>Year 1 Launch</span></div>
+</div>
+
+<section id="about">
+  <div class="section-divider"></div>
+  <span class="section-num">01</span>
+  <h2 class="section-title">Brand built from<br>the <em>ground up.</em></h2>
+  <div class="about-grid reveal">
+    <div class="about-body">
+      <p>I'm the founding marketer at TrainerCentral (Zoho), where I've spent five years owning the brand voice, building the content engine from scratch, and shipping campaigns across every surface — video, social, OOH, ads, and product copy. Not outsourced, not adapted — built from brief to publish, in-house.</p>
+      <p>The work I'm most proud of isn't the volume. It's the <strong>Chennai OOH campaign with Vadivelu and Chai Kings</strong> — where I led creative direction for in-house designers and video editors, wrote all the copy, and drove a 40% direct traffic lift because it spoke to how people here actually talk. Or the <strong>Singapore TAE/WSQ landing pages</strong> that tripled traffic because they used the exact language that local training professionals search for.</p>
+      <p>I've always been the person who both sets the creative direction and ships the work. At TrainerCentral, there was no creative team to hand off to — so I built briefs, directed designers and editors, set the bar, and produced the assets myself. That's built a strong instinct for when something is done, when it needs another pass, and what high taste actually looks like in practice.</p>
+    </div>
+    <div class="about-aside">
+      <div class="aside-block">
+        <h4>Current Role</h4>
+        <p>Senior Product Marketing Manager<br>TrainerCentral — Zoho Corporation<br>Nov 2020 – Present · Chennai, India</p>
+      </div>
+      <div class="aside-block">
+        <h4>Creative Surfaces Owned</h4>
+        <p>Video briefs · Design direction · Google Ads RSAs · YouTube scripts · Social ads · Landing pages · SEO articles · Email sequences · Onboarding copy · Brand guidelines</p>
+      </div>
+      <div class="aside-block">
+        <h4>Formats Owned</h4>
+        <p>Video · OOH · Social Ads · Landing Pages · Email · Product Copy · YouTube · Paid Search · Reels & Shorts · Community Content</p>
+      </div>
+      <div class="aside-block">
+        <h4>Contact</h4>
+        <p>ramkr_31@outlook.com<br>+91 98424 64948<br><a href="https://linkedin.com/in/sakthiramkumar" target="_blank">linkedin.com/in/sakthiramkumar</a></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="experience">
+  <div class="section-divider"></div>
+  <span class="section-num">02</span>
+  <h2 class="section-title"><em>Experience</em></h2>
+
+  <div class="exp-item reveal">
+    <div class="exp-meta">
+      <div class="exp-period">Nov 2020 → Present</div>
+      <div class="exp-company">Zoho Corporation</div>
+      <div class="exp-loc">Chennai, India</div>
+    </div>
+    <div class="exp-body">
+      <h3>Senior Product Marketing Manager</h3>
+      <p class="exp-sub">TrainerCentral — B2B SaaS LMS & Online Course Platform. Founding PMM; sole creative owner — brand voice, campaign architecture, and all content from brief to publish.</p>
+      <div class="exp-clusters">
+        <div class="exp-cluster">
+          <h4>Creative Direction & Team</h4>
+          <ul>
+            <li>Led creative direction for the Vadivelu × Chai Kings campaign — briefing and working with <strong>in-house designers and video editors</strong> from concept through final asset delivery across OOH and digital formats.</li>
+            <li>Acted as sole internal creative authority across all campaign assets — setting quality standards, writing briefs, reviewing executions, and ensuring visual and copy direction were in sync on every surface.</li>
+            <li>Built creative frameworks used by external video editors and graphic designers as standalone briefs — detailed enough to execute without hand-holding, sharp enough to maintain brand consistency.</li>
+          </ul>
+        </div>
+        <div class="exp-cluster">
+          <h4>Content & Copy</h4>
+          <ul>
+            <li>Built TrainerCentral's content engine from zero — SEO articles, comparison pages, Reddit community content, case studies — driving <strong>43% of all inbound traffic</strong>; community content alone delivered 12% conversion.</li>
+            <li>Wrote all <strong>product interface copy</strong> across logged-out and logged-in homepage surfaces, feature launches, and onboarding flows — maintaining local relevance for India and Singapore without relying on global templates.</li>
+            <li>Scripted and produced <strong>social ads and Google Ads RSAs</strong> across 100+ variations — tested across audiences, formats, and messages; managed the full asset bank from brief to publication.</li>
+            <li>Wrote all YouTube tutorial scripts for TrainerCentral Ignite — structured around search behaviour, designed for discoverability and practical design utility for Indian educators and creators.</li>
+          </ul>
+        </div>
+        <div class="exp-cluster">
+          <h4>India & Market Localisation</h4>
+          <ul>
+            <li><strong>Chennai OOH + digital campaign</strong> featuring Vadivelu x Chai Kings — wrote all campaign copy in local cultural register; delivered 40% direct traffic lift.</li>
+            <li><strong>Singapore TAE/WSQ localisation</strong> — rewrote all landing pages and ad creative around local training certification language; delivered strong traffic and signup growth.</li>
+            <li>Scaled India to 30% of global pipeline; replicated GTM learnings to launch Singapore faster with locally grounded content — not translated global copy.</li>
+          </ul>
+        </div>
+        <div class="exp-cluster">
+          <h4>Product & GTM</h4>
+          <ul>
+            <li>0→1 GTM launch: built ICP, positioning, and messaging from zero; reached 1,000+ signups in Year 1 through Google Ads and SEO content alone.</li>
+            <li>Drove 18% revenue lift through pricing restructure — rewrote all product surfaces, landing pages, and ad creative for the rollout.</li>
+            <li>Reduced MQL-to-SQL by 45% through repositioned messaging; reduced paid churn from 11% to 5% through scripted onboarding and adoption content.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="tags">
+        <span class="tag">Creative Direction</span><span class="tag">Brand Voice</span><span class="tag">Ad Scripts</span><span class="tag">Product Copy</span><span class="tag">YouTube Scripts</span><span class="tag">SEO</span><span class="tag">India Localisation</span><span class="tag">Social Content</span><span class="tag">Email Campaigns</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="exp-item reveal">
+    <div class="exp-meta">
+      <div class="exp-period">Jun 2020 → Nov 2020</div>
+      <div class="exp-company">Independent</div>
+      <div class="exp-loc">India</div>
+    </div>
+    <div class="exp-body">
+      <h3>Freelance Content Marketer</h3>
+      <p class="exp-sub">Esports teams and B2B SaaS startups.</p>
+      <div class="exp-clusters">
+        <div class="exp-cluster">
+          <ul>
+            <li>Worked with esports teams on PR, social content, and brand messaging for gaming audiences — scripting campaign content across multiple formats.</li>
+            <li>Delivered SEO strategy and brand copy for startups — 2–3× organic traffic growth and 15–25% conversion rate improvements across clients.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="tags"><span class="tag">Social Content</span><span class="tag">Brand Messaging</span><span class="tag">SEO Copy</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="work">
+  <div class="section-divider"></div>
+  <span class="section-num">03</span>
+  <h2 class="section-title">Creative Work<br><em>& Campaign Cases</em></h2>
+
+  <div class="yt-feature reveal" onclick="openModal('modal-youtube')">
+    <div class="yt-inner">
+      <a class="yt-embed-side" href="https://www.youtube.com/playlist?list=PLoFHpOb0V0SVHik8v3qTCaeQZZppOuJ2G" target="_blank" rel="noopener" onclick="event.stopPropagation()">
+        <img class="yt-thumb" src="https://i.ytimg.com/vi/jayW0pFrAMg/maxresdefault.jpg" alt="TrainerCentral Ignite playlist" onerror="this.src='https://i.ytimg.com/vi/jayW0pFrAMg/hqdefault.jpg'"/>
+        <div class="yt-play-btn"><div class="yt-play-circle"><div class="yt-play-triangle"></div></div></div>
+        <span class="yt-badge">Watch Playlist ↗</span>
+        <span class="yt-ext-arrow">↗</span>
+      </a>
+      <div class="yt-content-side">
+        <span class="work-card-cat">YouTube Series · Content Strategy</span>
+        <h3>TrainerCentral Ignite — YouTube Series</h3>
+        <p>Scripted and structured a YouTube tutorial series for TrainerCentral — designed around how Indian educators and creators actually search, not what a global content calendar would prescribe. Episodes built for discoverability and practical utility.</p>
+        <div class="yt-stats">
+          <div><span class="yt-stat-num">Search-first</span><span class="yt-stat-label">Episode structure</span></div>
+          <div><span class="yt-stat-num">India-first</span><span class="yt-stat-label">Audience framing</span></div>
+          <div><span class="yt-stat-num">End-to-end</span><span class="yt-stat-label">Script to publish</span></div>
+        </div>
+        <div class="tags" style="margin-top:20px"><span class="tag">YouTube Scripts</span><span class="tag">Content Strategy</span><span class="tag">Search Behaviour</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="work-grid" style="margin-top:2px">
+    <div class="work-card reveal" onclick="openModal('modal-chennai')">
+      <span class="work-card-num">01</span>
+      <span class="work-card-cat">India Campaign · OOH + Digital</span>
+      <h3>The Vadivelu × Chai Kings Campaign</h3>
+      <p>A Chennai-first campaign that didn't explain itself to non-Chennai audiences. Copy, creative direction, and cross-functional execution — briefing designers and video editors to build assets that matched the cultural tone of the writing.</p>
+      <div class="tags" style="margin-top:20px"><span class="tag">India Localisation</span><span class="tag">Ad Scripts</span><span class="tag">40% Traffic Lift</span></div>
+      <div class="work-card-arrow">↗</div>
+    </div>
+    <div class="work-card reveal" onclick="openModal('modal-singapore')">
+      <span class="work-card-num">02</span>
+      <span class="work-card-cat">Market Localisation · Singapore</span>
+      <h3>Singapore TAE/WSQ — Writing for a Regulated Training Market</h3>
+      <p>Rewrote every surface from scratch around local training certification language. When you stop translating and start writing in the market's vocabulary, the numbers follow.</p>
+      <div class="tags" style="margin-top:20px"><span class="tag">Landing Pages</span><span class="tag">Ad Creative</span><span class="tag">Market Localisation</span></div>
+      <div class="work-card-arrow">↗</div>
+    </div>
+    <div class="work-card reveal" onclick="openModal('modal-localised')">
+      <span class="work-card-num">03</span>
+      <span class="work-card-cat">Language Localisation · Tamil & Hindi</span>
+      <h3>Localised Ads for India — Tamil and Hindi Campaigns</h3>
+      <p>Adapted product messaging and campaign creative for Tamil and Hindi audiences — not translated, rewritten. Tone of voice guidelines built per language so every surface felt native.</p>
+      <div class="tags" style="margin-top:20px"><span class="tag">Tamil Copy</span><span class="tag">Hindi Campaigns</span><span class="tag">UX Localisation</span></div>
+      <div class="work-card-arrow">↗</div>
+    </div>
+    <div class="work-card reveal" onclick="openModal('modal-content-engine')">
+      <span class="work-card-num">04</span>
+      <span class="work-card-cat">Content Engine · SEO + Community</span>
+      <h3>Building a Content Engine That Drives 43% of Inbound</h3>
+      <p>No agency, no team. One PMM, every article, comparison page, Reddit thread, and case study — built into the primary acquisition channel over four years.</p>
+      <div class="tags" style="margin-top:20px"><span class="tag">SEO</span><span class="tag">Community</span><span class="tag">Comparison Pages</span></div>
+      <div class="work-card-arrow">↗</div>
+    </div>
+  </div>
+
+  <div class="karai-feature reveal" style="margin-top:2px">
+    <div class="karai-inner">
+      <div class="karai-embed-wrap">
+        <iframe
+          src="https://www.instagram.com/reel/DYAaWg7PiuS/embed/"
+          style="width:100%;min-height:560px;border:none;border-radius:6px;display:block;box-shadow:0 8px 32px rgba(0,0,0,.4);"
+          scrolling="no"
+          allowtransparency="true"
+          allow="autoplay;clipboard-write;encrypted-media;picture-in-picture;web-share"
+          allowfullscreen>
+        </iframe>
+      </div>
+      <div class="karai-content">
+        <span class="work-card-cat">Personal Project · Instagram Series</span>
+        <h3>Karai — Building a Daily Pixel Art Bar Series</h3>
+        <p>An Instagram series I'm building from scratch — scripted, episodic, social-first. Two characters. A bar. Fifteen emotion buckets. Every episode carries its entire emotional weight through dialogue, because pixel art animation won't give you facial expressions.</p>
+        <p>This is what building a brand on social-first video actually looks like before it launches: a series bible, 60 scripted episodes, a defined visual language, and the first episode published. The groundwork is done. The creative discipline behind it — constraints, retention structure, consistent character voice — is exactly the muscle a startup brand needs.</p>
+        <div class="karai-pills">
+          <span class="tag">Series Bible</span>
+          <span class="tag">60 Episode Scripts</span>
+          <span class="tag">Social-First Format</span>
+          <span class="tag">Episodic Narrative</span>
+          <span class="tag">Dialogue-Driven</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="section-divider"></div>
+  <span class="section-num">04</span>
+  <h2 class="section-title">Core <em>Skills</em></h2>
+  <div class="skills-grid reveal">
+    <div class="skill-block">
+      <h4>Content & Copy</h4>
+      <ul>
+        <li>Ad scripts (social, OOH, YouTube)</li>
+        <li>Product interface copy (LOHP / LIHP)</li>
+        <li>YouTube content strategy & scripting</li>
+        <li>CMS management & publishing</li>
+        <li>Landing page copywriting</li>
+        <li>Onboarding flows & email sequences</li>
+        <li>SEO articles & comparison pages</li>
+        <li>Series bible & episode scripting</li>
+      </ul>
+    </div>
+    <div class="skill-block">
+      <h4>Creative Leadership</h4>
+      <ul>
+        <li>Creative briefing for designers & editors</li>
+        <li>Brand voice development & documentation</li>
+        <li>Quality benchmarking across content types</li>
+        <li>Visual + copy integration</li>
+        <li>Campaign architecture end-to-end</li>
+        <li>Creative direction for video and social</li>
+        <li>Cross-functional team working</li>
+      </ul>
+    </div>
+    <div class="skill-block">
+      <h4>Video & Social</h4>
+      <ul>
+        <li>YouTube search-first episode structure</li>
+        <li>Short-form social scripting (Reels/Shorts)</li>
+        <li>Dialogue-driven narrative scripting</li>
+        <li>CapCut video editing</li>
+        <li>Thumbnail strategy</li>
+        <li>Daily publishing pipeline</li>
+        <li>Pixel art animation direction</li>
+      </ul>
+    </div>
+    <div class="skill-block">
+      <h4>Tools</h4>
+      <ul>
+        <li>Canva (daily — design, ads, social)</li>
+        <li>CapCut</li>
+        <li>Leonardo.ai · Piskel · PixelLab</li>
+        <li>Claude API · Ahrefs · GA4</li>
+        <li>Google Ads · Facebook Ads Manager</li>
+        <li>Zoho Analytics · Zoho CRM</li>
+        <li>React · Supabase</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <span class="footer-name">Sakthi Ramkumar · Open to Bangalore</span>
+  <div class="footer-links">
+    <a href="mailto:ramkr_31@outlook.com">Email</a>
+    <a href="https://linkedin.com/in/sakthiramkumar" target="_blank">LinkedIn</a>
+    <a href="https://www.youtube.com/playlist?list=PLoFHpOb0V0SVHik8v3qTCaeQZZppOuJ2G" target="_blank">YouTube</a>
+  </div>
+</footer>
+
+<!-- MODALS -->
+<div class="modal-overlay" id="modal-youtube" onclick="closeModalOnBg(event,'modal-youtube')">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal('modal-youtube')">Close ✕</button>
+    <span class="modal-cat">YouTube Series · Content Strategy · Search-First</span>
+    <h2>TrainerCentral Ignite — Scripting a YouTube Series for Indian Creators</h2>
+    <div class="modal-body">
+      <p>YouTube is how hundreds of millions of Indians learn new tools. The brief for this series wasn't "make tutorial videos" — it was to build a content series structured around how Indian educators, trainers, and creators actually search on the platform.</p>
+      <p>Every episode was scripted around a specific search intent: <strong>not what TrainerCentral wanted to explain, but what a trainer in India was trying to figure out</strong>. The difference is significant — it changes the episode title, the opening hook, the pacing, and what gets left out.</p>
+      <p>I wrote the scripts, structured the content hierarchy, and developed the episode briefs from search research. The series was designed for discoverability first, product education second — because an unseen tutorial helps nobody.</p>
+    </div>
+    <div class="modal-stats">
+      <div class="modal-stat"><span class="modal-stat-num">Search</span><span class="modal-stat-label">Episode structure principle</span></div>
+      <div class="modal-stat"><span class="modal-stat-num">India</span><span class="modal-stat-label">Primary audience framing</span></div>
+      <div class="modal-stat"><span class="modal-stat-num">End-to-end</span><span class="modal-stat-label">Brief to published script</span></div>
+      <div class="modal-stat"><span class="modal-stat-num">Series</span><span class="modal-stat-label">Not one-off videos</span></div>
+    </div>
+    <div class="modal-section">
+      <h4>What made this different from a standard tutorial series</h4>
+      <div class="step-grid">
+        <div class="step-block"><span class="step-num">01</span><strong>Search-first episode design</strong><p>Each episode was titled and opened around the exact query a learner would type — not a product feature name.</p></div>
+        <div class="step-block"><span class="step-num">02</span><strong>Indian audience framing</strong><p>Scripts used context that Indian creators and educators recognise — not global defaults with the timezone changed.</p></div>
+        <div class="step-block"><span class="step-num">03</span><strong>Utility over promotion</strong><p>Episodes designed to solve a real design or business problem, not to demonstrate a feature list.</p></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal-overlay" id="modal-chennai" onclick="closeModalOnBg(event,'modal-chennai')">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal('modal-chennai')">Close ✕</button>
+    <span class="modal-cat">India Campaign · OOH + Digital · Local Cultural Register</span>
+    <h2>The Vadivelu × Chai Kings Campaign — Writing for Chennai, Not for India</h2>
+    <div class="modal-body">
+      <p>Most "India-localised" content is global copy with the INR symbol swapped in. This campaign was built the other way: started with the city, the cultural reference, and the platform where the audience actually lives, then worked backwards to the message.</p>
+      <p>The hook was Vadivelu — Tamil cinema's most recognisable comedian — in the context of Chai Kings, a Chennai tea shop chain that had become a genuine cultural touchstone. <strong>The copy didn't need to explain the reference. It just needed to earn it.</strong></p>
+      <p>I wrote all campaign copy: OOH taglines, digital ad scripts, social captions, and the follow-up email sequences. I also led creative direction for the visual assets — briefing and working with in-house designers and video editors to ensure the visuals matched the cultural register of the copy. The campaign only works if both halves speak the same language. The brief was to drive trial signups from solo trainers and independent creators in Tamil Nadu. The result was a 40% lift in direct traffic — the clearest possible signal that the audience recognised the campaign as one of their own.</p>
+      <div class="canva-wrap">
+        <div>
+          <div class="canva-embed-box">
+            <iframe loading="lazy" src="https://www.canva.com/design/DAHE2l7eIVU/L9SJy49897RaMAgy0-df1g/view?embed" allowfullscreen allow="fullscreen"></iframe>
+          </div>
+          <p class="canva-caption">Campaign Creative — Vadivelu × Chai Kings</p>
+        </div>
+        <div style="padding-top:12px">
+          <div style="border-left:2px solid var(--gold-dim);padding-left:20px;margin-bottom:24px">
+            <div style="font-family:var(--mono);font-size:10px;color:var(--gold);letter-spacing:.1em;text-transform:uppercase;margin-bottom:8px">The insight</div>
+            <p style="font-size:14px;color:var(--mid);line-height:1.65">Vadivelu and Chai Kings aren't India references. They're Chennai references. That specificity is why it landed — the audience felt seen, not targeted.</p>
+          </div>
+          <div style="border-left:2px solid var(--gold-dim);padding-left:20px;margin-bottom:24px">
+            <div style="font-family:var(--mono);font-size:10px;color:var(--gold);letter-spacing:.1em;text-transform:uppercase;margin-bottom:8px">The copy principle</div>
+            <p style="font-size:14px;color:var(--mid);line-height:1.65">The best local content assumes the audience already belongs to the culture. It doesn't introduce it — it earns it.</p>
+          </div>
+          <div style="border-left:2px solid var(--gold-dim);padding-left:20px">
+            <div style="font-family:var(--mono);font-size:10px;color:var(--gold);letter-spacing:.1em;text-transform:uppercase;margin-bottom:8px">The result</div>
+            <p style="font-size:14px;color:var(--mid);line-height:1.65">40% direct traffic lift. Direct traffic is the clearest brand signal — people typed the URL because they remembered the campaign.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal-overlay" id="modal-singapore" onclick="closeModalOnBg(event,'modal-singapore')">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal('modal-singapore')">Close ✕</button>
+    <span class="modal-cat">Market Localisation · Singapore · TAE/WSQ</span>
+    <h2>Singapore TAE/WSQ — Writing for a Regulated Training Market You Don't Live In</h2>
+    <div class="modal-body">
+      <p>The brief was to launch TrainerCentral in Singapore's professional training market — a segment dominated by government-recognised certifications, regulated frameworks (TAE, WSQ), and buyers who speak a very specific industry language.</p>
+      <p>The existing TrainerCentral content was written for independent creators in India. I couldn't just translate it. I had to <strong>learn the Singapore training market's vocabulary from scratch</strong> — how their practitioners describe their work, what credentials they care about, which certifications they reference in conversation — and rewrite every surface from that starting point.</p>
+      <p>Landing pages, ad creative, Google Ads RSAs, social content: all rewritten with zero global-defaults. The result was meaningful traffic and signup growth from a standing start — validation that local vocabulary, not translated global copy, was the lever.</p>
+    </div>
+    <div class="modal-stats">
+      <div class="modal-stat"><span class="modal-stat-num">TAE/WSQ</span><span class="modal-stat-label">Market Vocabulary</span></div>
+      <div class="modal-stat"><span class="modal-stat-num">All surfaces</span><span class="modal-stat-label">Rewritten from scratch</span></div>
+      <div class="modal-stat"><span class="modal-stat-num">India→SG</span><span class="modal-stat-label">GTM replicated</span></div>
+      <div class="modal-stat"><span class="modal-stat-num">Zero</span><span class="modal-stat-label">Global defaults used</span></div>
+    </div>
+    <div class="modal-section">
+      <h4>The process</h4>
+      <div class="step-grid">
+        <div class="step-block"><span class="step-num">01</span><strong>Market vocabulary research</strong><p>Mapped how Singapore training professionals describe their work, which credentials they mention, and what they search for.</p></div>
+        <div class="step-block"><span class="step-num">02</span><strong>Full surface rewrite</strong><p>Landing pages, ad copy, RSAs, and social content rewritten from zero — not adapted from India copy.</p></div>
+        <div class="step-block"><span class="step-num">03</span><strong>Measured against traffic + signups</strong><p>Growth validated that local vocabulary, not translated global copy, was the lever.</p></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal-overlay" id="modal-localised" onclick="closeModalOnBg(event,'modal-localised')">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal('modal-localised')">Close ✕</button>
+    <span class="modal-cat">Language Localisation · Tamil · Hindi · UX Copy</span>
+    <h2>Localised Ads for India — Tamil and Hindi, Not Translated</h2>
+    <div class="modal-body">
+      <p>Led localisation strategy for India across Tamil and Hindi — adapting product messaging, campaign creative, and UX copy for regional audiences rather than running global assets through a translator. The difference shows immediately: translated copy reads like translated copy.</p>
+      <p>Built language-specific tone of voice guidelines for each market, covering vocabulary, register, formality level, and the specific product terms that felt natural vs. awkward in each language. Worked on Tamil UX copy and product-facing content at Zoho, ensuring terminology was accurate, culturally grounded, and consistent across surfaces. Hindi activation campaigns were built for North India markets with conversational Hindi proficiency informing tone and audience framing decisions.</p>
+    </div>
+    <div class="canva-wrap">
+      <div>
+        <div class="canva-embed-box">
+          <iframe loading="lazy" src="https://www.canva.com/design/DAHE2t-lUs8/NsTjaZbdxZCRPEFe02bC2Q/view?embed" allowfullscreen allow="fullscreen"></iframe>
+        </div>
+        <p class="canva-caption">Localised Ad Creative — India Markets</p>
+      </div>
+      <div style="padding-top:12px">
+        <div style="border-left:2px solid var(--gold-dim);padding-left:20px;margin-bottom:24px">
+          <div style="font-family:var(--mono);font-size:10px;color:var(--gold);letter-spacing:.1em;text-transform:uppercase;margin-bottom:8px">Tamil</div>
+          <p style="font-size:14px;color:var(--mid);line-height:1.65">UX copy and product-facing content written natively — terminology checked for cultural accuracy and consistency across marketing and product surfaces.</p>
+        </div>
+        <div style="border-left:2px solid var(--gold-dim);padding-left:20px;margin-bottom:24px">
+          <div style="font-family:var(--mono);font-size:10px;color:var(--gold);letter-spacing:.1em;text-transform:uppercase;margin-bottom:8px">Hindi</div>
+          <p style="font-size:14px;color:var(--mid);line-height:1.65">Activation campaigns for North India built with conversational Hindi proficiency — tone and audience framing informed by how people actually speak, not how a dictionary suggests.</p>
+        </div>
+        <div style="border-left:2px solid var(--gold-dim);padding-left:20px">
+          <div style="font-family:var(--mono);font-size:10px;color:var(--gold);letter-spacing:.1em;text-transform:uppercase;margin-bottom:8px">Principle</div>
+          <p style="font-size:14px;color:var(--mid);line-height:1.65">Regional content needs tone of voice guidelines, not just a glossary. Each market got its own register — what feels natural in Tamil doesn't land the same way in Hindi.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal-overlay" id="modal-content-engine" onclick="closeModalOnBg(event,'modal-content-engine')">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal('modal-content-engine')">Close ✕</button>
+    <span class="modal-cat">Content Engine · SEO · Community · 4 Years</span>
+    <h2>Building a Content Engine That Drives 43% of Inbound — Solo</h2>
+    <div class="modal-body">
+      <p>No content team. No agency. No budget for a writer. Every article, comparison page, Reddit post, case study, and community thread written by one PMM over four years — and it became the primary acquisition channel for TrainerCentral globally.</p>
+      <p>The engine runs across four content types: <strong>SEO comparison articles</strong> (e.g. "TrainerCentral vs Kajabi") that intercept mid-funnel buyers already evaluating; <strong>Reddit community threads</strong> in creator and L&D subreddits that drive 12% conversion; <strong>case studies</strong> written around vertical-specific outcomes; and <strong>landing pages</strong> for every audience segment, market, and use case.</p>
+      <p>The discipline here isn't writing volume. It's knowing which surface serves which stage of the buyer's journey, and writing content that answers the right question at the right moment — not content that talks about the product.</p>
+    </div>
+    <div class="modal-stats">
+      <div class="modal-stat"><span class="modal-stat-num">43%</span><span class="modal-stat-label">Inbound Traffic Share</span></div>
+      <div class="modal-stat"><span class="modal-stat-num">12%</span><span class="modal-stat-label">Reddit Conversion Rate</span></div>
+      <div class="modal-stat"><span class="modal-stat-num">4 types</span><span class="modal-stat-label">Content formats owned</span></div>
+      <div class="modal-stat"><span class="modal-stat-num">Solo</span><span class="modal-stat-label">No content team</span></div>
+    </div>
+    <div class="modal-section">
+      <h4>Content types and their jobs</h4>
+      <div class="step-grid">
+        <div class="step-block"><span class="step-num">SEO</span><strong>Comparison & alternative pages</strong><p>Intercept buyers evaluating Kajabi, Teachable, Thinkific. Bottom funnel, high intent.</p></div>
+        <div class="step-block"><span class="step-num">Reddit</span><strong>Community threads</strong><p>Written to contribute, not to promote. The most unfiltered signal of what buyers actually care about. 12% conversion.</p></div>
+        <div class="step-block"><span class="step-num">Case Studies</span><strong>Vertical-specific outcomes</strong><p>Written around the buyer's business outcome, not the product's features. Different document per vertical.</p></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+window.addEventListener('scroll',()=>{
+  document.getElementById('nav').classList.toggle('scrolled',window.scrollY>20)
+});
+const observer=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible')})
+},{threshold:0.1,rootMargin:'0px 0px -40px 0px'});
+document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
+function openModal(id){document.getElementById(id).classList.add('open');document.body.style.overflow='hidden'}
+function closeModal(id){document.getElementById(id).classList.remove('open');document.body.style.overflow=''}
+function closeModalOnBg(e,id){if(e.target===document.getElementById(id))closeModal(id)}
+document.addEventListener('keydown',e=>{
+  if(e.key==='Escape'){
+    document.querySelectorAll('.modal-overlay.open').forEach(m=>m.classList.remove('open'));
+    document.body.style.overflow='';
+  }
+});
+</script>
+</body>
+</html>
